@@ -12,9 +12,11 @@ h1 {
 }
 #a1{
    font-size: 100px;
-    vertical-align: top;
-    color: lightgreen
 
+
+}
+#a2{
+  color:darkgreen;
 }
 article {
   display: block;
