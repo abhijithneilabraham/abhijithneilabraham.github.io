@@ -1,5 +1,6 @@
-body {
+body,html {
   background-color: powderblue;
+height: 100%;
 }
 h1 {
   color: blue;
@@ -20,4 +21,16 @@ h1 {
 }
 article {
   display: block;
+}
+.bg {
+  /* The image used */
+  background-image: url("one.jpeg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
