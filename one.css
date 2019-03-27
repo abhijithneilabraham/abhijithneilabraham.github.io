@@ -4,6 +4,13 @@ body {
 h1 {
   color: blue;
 }
-p {
+#firstp {
   color: red;
+}
+#secondp{
+  color: magenta;
+}
+
+article {
+  display: block;
 }
