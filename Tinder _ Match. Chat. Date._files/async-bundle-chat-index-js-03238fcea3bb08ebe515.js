@@ -1,0 +1,2 @@
+/*! {© 2016 - 2019 Tinder, Inc., ALL RIGHTS RESERVED} */
+(window.webpackJsonp=window.webpackJsonp||[]).push([[71],{1000:function(n,e,t){"use strict";t.r(e);var c=t(1089),i=Object(c.a)("chat",(function(){return Promise.all([t.e(0),t.e(72)]).then(t.bind(null,1588))}),(function(){}));e.default=i}}]);

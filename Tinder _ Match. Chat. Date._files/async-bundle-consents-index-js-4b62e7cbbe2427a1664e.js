@@ -1,0 +1,2 @@
+/*! {© 2016 - 2019 Tinder, Inc., ALL RIGHTS RESERVED} */
+(window.webpackJsonp=window.webpackJsonp||[]).push([[73],{1001:function(n,t,e){"use strict";e.r(t);var c=e(1089),o=Object(c.a)("consents",(function(){return e.e(74).then(e.bind(null,1589))}),(function(){}));t.default=o}}]);

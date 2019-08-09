@@ -1,0 +1,20 @@
+#div1 {
+    position: absolute;
+    text-align: justify;
+
+    top: 30px;
+    left: 150px;
+
+    width: 100vw;
+    height: 100px; /* height of text */
+}
+#div2{
+  position: absolute;
+  text-align: justify;
+
+  top: 25px;
+  left: 870px;
+
+  width: 100vw;
+  height: 100px;
+}
