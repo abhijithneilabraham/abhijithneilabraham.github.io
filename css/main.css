@@ -46,7 +46,7 @@ body {
     user-select: none;
 }
 .prompt-color {
-    color: #3a992f;
+    color: #39ff14;
 }
 .input-line {
     display: -webkit-box;
@@ -89,7 +89,7 @@ body {
     z-index: 9;
     top: 0;
     left: 0;
-    background-color: #3a992f;
+    background-color: #39ff14;
     opacity: 0.8;
     overflow-x: hidden;
     transition: 0.3s;
@@ -121,7 +121,7 @@ body {
     border:none;
 }
 #sidenav button:hover {
-    color:#3a992f;
+    color:#39ff14;
 }
 
 @media screen and (max-height: 450px) {
