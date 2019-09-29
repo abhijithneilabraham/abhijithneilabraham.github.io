@@ -1,2 +1,0 @@
-/*! {© 2016 - 2019 Tinder, Inc., ALL RIGHTS RESERVED} */
-(window.webpackJsonp=window.webpackJsonp||[]).push([[60],{1648:function(o,n,c){"use strict";c.r(n);var e=c(6),l=c.n(e),a=c(5),u=c(68),i=c(36),t=c(58),d=c(59),s=l()(i.b,{id:"troubleLoggingIn"}),b={openModal:t.b};n.default=Object(u.c)(null,b)(Object(a.memo)((function(o){var n=Object(a.useCallback)((function(){o.closeModalFunction&&o.closeModalFunction(),o.openModal(d.I)}),[o.closeModalFunction,o.openModal]);return l()("div",{className:"Td(u) Cur(p)",onClick:n},void 0,s)})))}}]);
