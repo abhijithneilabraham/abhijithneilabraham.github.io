@@ -89,7 +89,7 @@ body {
     z-index: 9;
     top: 0;
     left: 0;
-    background-color: #39ff14;
+    background-color: black;
     opacity: 0.8;
     overflow-x: hidden;
     transition: 0.3s;

@@ -12,7 +12,7 @@ var configs = (function () {
         }
     };
     Singleton.defaultOptions = {
-        general_help: "You are granted 13 wishes. You can choose one of them",
+        general_help: "You are granted some wishes. You can choose one of them",
         ls_help: "Show the treasures I have kept open for you.",
         cat_help: "Open the treasures.Enter 'treasure [filename]' ",
         whoami_help: "Who am I, Genie?",
@@ -20,15 +20,10 @@ var configs = (function () {
         help_help: "duh ,I am already helping.",
         clear_help: "Beat my memory outta me and let's start the convo again",
         reboot_help: "Knock me out.Uff ",
-        cd_help: "Crack open a room to find if a treasure is there",
-        mv_help: "Move ya goodies!",
-        rm_help: "Remove. Wait ,seriously you wanna remove?",
-        rmdir_help: "Clean off em empty Caves",
-        touch_help: "make your own treasures with love.",
         sudo_help: "Summon the supergenie to do the tasks the other one is afraid of",
         welcome: "You have summoned the Aladdin's Genie,name your wish,or type-->help into the terminal",
         internet_explorer_warning: "NOTE: I see you're using internet explorer, Genie can't come out.",
-        welcome_file_name: "welcome_message.txt",
+        welcome_file_name: "Try any treasure below",
         invalid_command_message: "<value>: dude you aint gon' be granted that.",
         reboot_message: "Preparing to vanish...\n\n3...\n\n2...\n\n1...\n\ Be back shortly...\n\n",
         permission_denied_message: "Unable to '<value>', Genie Afraid.Call supergenie",
@@ -67,11 +62,11 @@ var files = (function () {
         }
     };
     Singleton.defaultOptions = {
-        "about": "Yo, I use a human name to blend in Earth. Open the other treasures to know more about him",
-        "getting_started.txt": "First, go to js/main.js and replace all the text on both singleton vars.\n- configs: All the text used on the website.\n- files: All the fake files used on the website. These files are also used to be listed on the sidenav.\nAlso please notice if a file content is a raw URL, when clicked/concatenated it will be opened on a new tab.\nDon't forget also to:\n- Change the page title on the index.html file\n- Change the website color on the css/main.css\n- Change the images located at the img folder. The suggested sizes are 150x150 for the avatar and 32x32/16x16 for the favicon.",
+        "About": "Yo, I use a human name to blend in Earth. Open the other treasures to know more about him",
         "Mail": "abhijithneilabrahampk@gmail.com",
         "Github": "https://github.com/abhijithneilabraham/",
         "LinkedIn": "https://www.linkedin.com/in/abhijith-neil-abraham-765165141/"
+
     };
     return {
         getInstance: function (options) {
@@ -126,11 +121,6 @@ var main = (function () {
         HELP: { value: "help", help: configs.getInstance().help_help },
         CLEAR: { value: "clear", help: configs.getInstance().clear_help },
         REBOOT: { value: "knockout", help: configs.getInstance().reboot_help },
-        CD: { value: "cd", help: configs.getInstance().cd_help },
-        MV: { value: "mv", help: configs.getInstance().mv_help },
-        RM: { value: "rm", help: configs.getInstance().rm_help },
-        RMDIR: { value: "rmdir", help: configs.getInstance().rmdir_help },
-        TOUCH: { value: "touch", help: configs.getInstance().touch_help },
         SUDO: { value: "supergenie", help: configs.getInstance().sudo_help }
     };
 
@@ -330,13 +320,6 @@ var main = (function () {
                 break;
             case cmds.REBOOT.value:
                 this.reboot();
-                break;
-            case cmds.CD.value:
-            case cmds.MV.value:
-            case cmds.RMDIR.value:
-            case cmds.RM.value:
-            case cmds.TOUCH.value:
-                this.permissionDenied(cmdComponents);
                 break;
             case cmds.SUDO.value:
                 this.sudo();
