@@ -20,14 +20,12 @@ var configs = (function () {
         help_help: "duh ,I am already helping.",
         clear_help: "Beat my memory outta me and let's start the convo again",
         reboot_help: "Knock me out.Uff ",
-        sudo_help: "Summon the supergenie to do the tasks the other one is afraid of",
         welcome: "You have summoned the Aladdin's Genie,name your wish,or type-->help into the terminal",
         internet_explorer_warning: "NOTE: I see you're using internet explorer, Genie can't come out.",
         welcome_file_name: "Try any treasure below",
         invalid_command_message: "<value>: dude you aint gon' be granted that.",
         reboot_message: "Preparing to vanish...\n\n3...\n\n2...\n\n1...\n\ Be back shortly...\n\n",
         permission_denied_message: "Unable to '<value>', Genie Afraid.Call supergenie",
-        sudo_message: "Unable to summon supergenie using a web client.",
         usage: "Usage",
         file: "file",
         file_not_found: "Treasure '<value>' not found.",
@@ -121,7 +119,7 @@ var main = (function () {
         HELP: { value: "help", help: configs.getInstance().help_help },
         CLEAR: { value: "clear", help: configs.getInstance().clear_help },
         REBOOT: { value: "knockout", help: configs.getInstance().reboot_help },
-        SUDO: { value: "supergenie", help: configs.getInstance().sudo_help }
+
     };
 
     var Terminal = function (prompt, cmdLine, output, sidenav, profilePic, user, host, root, outputTimer) {
@@ -321,9 +319,6 @@ var main = (function () {
             case cmds.REBOOT.value:
                 this.reboot();
                 break;
-            case cmds.SUDO.value:
-                this.sudo();
-                break;
             default:
                 this.invalidCommand(cmdComponents);
                 break;
@@ -348,11 +343,7 @@ var main = (function () {
             result += file + "\n";
         }
         this.type(result.trim(), this.unlock.bind(this));
-    };
-
-    Terminal.prototype.sudo = function () {
-        this.type(configs.getInstance().sudo_message, this.unlock.bind(this));
-    }
+    };  
 
     Terminal.prototype.whoami = function (cmdComponents) {
         var result = configs.getInstance().username + ": " + configs.getInstance().user + "\n" + configs.getInstance().hostname + ": " + configs.getInstance().host + "\n" + configs.getInstance().platform + ": " + navigator.platform + "\n" + configs.getInstance().accesible_cores + ": " + navigator.hardwareConcurrency + "\n" + configs.getInstance().language + ": " + navigator.language;
