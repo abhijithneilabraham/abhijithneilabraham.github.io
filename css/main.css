@@ -8,7 +8,7 @@ html, body {
 }
 body {
     font-size: 13pt;
-    font-family: monospace;
+    font-family:"Comic Sans MS", cursive, sans-serif;
     color: white;
     background-color: black;
 }
@@ -47,6 +47,7 @@ body {
 }
 .prompt-color {
     color: #39ff14;
+     font-family:"Comic Sans MS", cursive, sans-serif;
 }
 .input-line {
     display: -webkit-box;
@@ -127,6 +128,7 @@ body {
 @media screen and (max-height: 450px) {
     body {
         font-size: 11pt;
+         font-family:"Comic Sans MS", cursive, sans-serif;
     }
     #sidenav {
        padding-top: 15px;
