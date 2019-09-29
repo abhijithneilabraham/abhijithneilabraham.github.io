@@ -15,7 +15,7 @@ var configs = (function () {
         general_help: "You are granted 13 wishes. You can choose one of them",
         ls_help: "Show the treasures I have kept open for you.",
         cat_help: "Open the treasures.Enter 'treasure [filename]' ",
-        whoami_help: "Who was I in the past Life?",
+        whoami_help: "Who am I, Genie?",
         date_help: "Which part of the timeline I am in now?",
         help_help: "duh ,I am already helping.",
         clear_help: "Beat my memory outta me and let's start the convo again",
