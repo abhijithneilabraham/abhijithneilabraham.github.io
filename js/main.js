@@ -60,7 +60,7 @@ var files = (function () {
         }
     };
     Singleton.defaultOptions = {
-        "About": "Yo, I use a human name to blend in Earth. Open the other treasures to know more about him",
+        "About": "Yo, I use a human name to blend in Earth. A passionate learner and a good teacher and mentor,primed with interest in Artificial Intelligence,I have put hands on NLP, Image processing, Reinforcement Learning for Robotics,etc. I also make android apps, and builds websites, and have worked with lots of other technologies like parsers,web scrapers, testing,etc and  also have good experience with hardware where I learned Microcontroller programming,worked with Arduino,Raspberry Pi, FPGAs,etc. I am also a hardcore nerd where I learn things other than tech also to keep me curious and ideate wherever I go. Apart from these, I also found a community in my college, for enabling tech access to all! Yes. I can grant your wish come true!",
         "Mail": "abhijithneilabrahampk@gmail.com",
         "Github": "https://github.com/abhijithneilabraham/",
         "LinkedIn": "https://www.linkedin.com/in/abhijith-neil-abraham-765165141/"
