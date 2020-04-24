@@ -15,7 +15,7 @@ var configs = (function () {
         general_help: "You are granted some wishes. You can choose one of them",
         ls_help: "Show the treasures I have kept open for you.",
         cat_help: "Open the treasures.Enter 'treasure [filename]' ",
-        whoami_help: "Who am I, Genie?",
+        whoami_help: "Who am I?",
         date_help: "Which part of the timeline I am in now?",
         help_help: "duh ,I am already helping.",
         clear_help: "Beat my memory outta me and let's start the convo again",
@@ -348,7 +348,7 @@ var main = (function () {
 
 
     Terminal.prototype.whoami = function (cmdComponents) {
-        var result = configs.getInstance().username + ": " + configs.getInstance().user + "\n" + configs.getInstance().hostname + ": " + configs.getInstance().host + "\n" + configs.getInstance().platform + ": " + navigator.platform + "\n" + configs.getInstance().accesible_cores + ": " + navigator.hardwareConcurrency + "\n" + configs.getInstance().language + ": " + navigator.language;
+        var result = "Myself Abhijith Neil Abraham (a.k.a Abhigith with a 'g'),Passionate in both hardware and software with primary focus in AI, and also has good skills in web and app development,along with hardware interests like microcontrollers and robotics. Makes custom products on my own and always comes up with novel ideas and implementation strategies.I learn everyday, and is passion driven rather than career driven.I also mentor in tech communities, and helps others also reach great heights."
         this.type(result, this.unlock.bind(this));
     };
 
