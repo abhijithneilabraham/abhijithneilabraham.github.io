@@ -20,7 +20,7 @@ var configs = (function () {
         help_help: "duh ,I am already helping.",
         clear_help: "Beat my memory outta me and let's start the convo again",
         reboot_help: "Knock me out.Uff ",
-        welcome: "You have summoned the Aladdin's Genie,name your wish,or type-->help into the terminal to find what I can offer.",
+        welcome: "You have summoned the Aladdin's Genie,name your wish,or type--> 'help' into the terminal to find what I can offer.",
         internet_explorer_warning: "NOTE: I see you're using internet explorer, Genie can't come out.",
         welcome_file_name: "Try any treasure below",
         invalid_command_message: "<value>: dude you aint gon' be granted that.",
