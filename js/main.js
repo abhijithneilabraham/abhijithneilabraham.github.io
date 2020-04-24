@@ -348,7 +348,7 @@ var main = (function () {
 
 
     Terminal.prototype.whoami = function (cmdComponents) {
-        var result = "Myself Abhijith Neil Abraham (a.k.a Abhigith with a 'g'),Passionate in both hardware and software with primary focus in AI, and also has good skills in web and app development,along with hardware interests like microcontrollers and robotics. Makes custom products on my own and always comes up with novel ideas and implementation strategies.I learn everyday, and is passion driven rather than career driven.I also mentor in tech communities, and helps others also reach great heights."
+        var result = "Myself Abhijith Neil Abraham (a.k.a Abhigith with a 'g'),Passionate in both hardware and software with primary focus in AI, and also has good skills in web and app development,along with hardware interests like microcontrollers and robotics. Makes custom products on my own and always comes up with novel ideas and implementation strategies.I learn everyday, and is passion driven rather than career driven.I also mentor in tech communities,takes workshops and does public speaking and helps others also reach great heights."
         this.type(result, this.unlock.bind(this));
     };
 
