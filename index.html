@@ -1,32 +1,437 @@
-<html>
+<!DOCTYPE html>
+<html class="no-js" lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhijith Neil Abraham</title>
-    <link rel="icon" href="./img/favicon.png" type="image/x-icon" />
-    <link href="./css/main.css" rel="stylesheet" type="text/css" />
-    <script src="./js/polyfills.js"></script>
-    <script src="./js/main.js"></script> </head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Portfolio</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
 
 <body>
-    <div id="sidenav">
-        <button id="sidenavBtn">&#9776;</button>
-        <img id="profilePic" alt="An avatar that aims to represent the website owner" src="./img/avatar.png">
+    <div id="mobile-menu-open" class="shadow-large">
+        <i class="fa fa-bars" aria-hidden="true"></i>
     </div>
-    <div id="container">
-        <div id="output"></div>
-        <div id="input-line" class="input-line">
-            <div id="prompt" class="prompt-color"></div>&nbsp;
-            <div>
-                <input type="text" id="cmdline" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-                    autofocus/>
+    <!-- End #mobile-menu-toggle -->
+    <header>
+        <div id="mobile-menu-close">
+            <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
+        </div>
+        <ul id="menu" class="shadow">
+            <li>
+                <a href="#about">About</a>
+            </li>
+            <li>
+                <a href="#experience">Experience</a>
+            </li>
+            <li>
+                <a href="#education">Education</a>
+            </li>
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+            <li>
+                 <a href="#opensource">Open Source </a>
+                </li>
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+        </ul>
+    </header>
+    <!-- End header -->
+
+    <div id="lead">
+        <div id="lead-content">
+            <h1>Abhigith Neil Abraham</h1>
+            <h2>Machine Learning Developer</h2>
+            <a href="#" class="btn-rounded-white">Download Resume</a>
+        </div>
+        <!-- End #lead-content -->
+
+        <div id="lead-overlay"></div>
+
+        <div id="lead-down">
+            <span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </span>
+        </div>
+        <!-- End #lead-down -->
+    </div>
+    <!-- End #lead -->
+
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2 class="heading">About Me</h2>
+                </div>
+                <div class="col-md-8">
+                    <p>While being a 2016-2020 batch engineering student, my high passion on building and experimenting new things with the mindset of a scientist,and having strong analytical and mathematical skills, it lead me to exploring a lot in my academic times. Primed with knowledge in Python,Java and C++, I create solutions in machine learning ,web development ,native apps, and also in hardware.</p>
+                    <br></br>
+                    <p>I also am immensely passionate in teaching, and have taken workshops on machine learning across the state.As a result, I got selected to the Google Explore ML facilitator program. I also believe that active community involvement and helping others is the best way to success, so I became the founder of a community chapter named TinkerHub, for our college.</p>
+                    <br></br>
+                    <p>I have worked collaboratively with multiple startups during my academic times, and also in various open source projects, which makes me very much experienced in getting along with the production environment and its development practices. I believe in the progress I make each day, and my ability to analyse a software development problem and coming up with quick means to solve it,and have been maintaining an active streak of 500+ days of code contribution to GitHub. </p>
+                </div>
             </div>
         </div>
     </div>
-    <a id="githubImg" target="_blank" href="https://github.com/luisbraganca/fake-terminal-website/">
-     </a>
+    <!-- End #about -->
+
+    <div id="experience" class="background-alt">
+        <h2 class="heading">Experience</h2>
+        <div id="experience-timeline">
+            <div data-date=" March 2020 –  Present">
+                <h3>Gift Card Bank </h3>
+                <h4>NLP Developer</h4>
+                <p>
+                    I worked at Gift Card Bank, a non profit organisation aimed at providing for the Covid 19 affected families through Gift Cards,and started in April 2020. I created an NLP tool,using BERT, and Keras, to filter the customer stories and verify if they're eligible to earn a Gift Card.
+                </p>
+                <a href="https://www.giftcardbank.org/about">Click to know more</a>
+            </div>
+
+            <div data-date="April 2020 –  Present">
+                <h3>alrt.ai</h3>
+                <h4>Software Architecture Consultant</h4>
+                <p>
+                 alrt.ai is a start-up focussed on giving tailored content based on news related to consultants.I work as an architecture consultant, developing strategies to solve specific data oriented problems and building knowledge graphs to match news stories and entities.
+                </p>
+                <a href="http://alrt.ai/">Click to know more</a>
+            </div>
+
+            <div data-date="June 2019 – January 2020">
+                <h3>Founding Minds Inc</h3>
+                <h4>ML Research Intern</h4>
+                <p>
+                    Worked  under the mentorship of Dr. Jayaraj Poroor, researcher at Microsoft. 
+                </p>  
+                 <p>
+                     Did data collection from programming languages using parser created by ANTLR, and created an NLP tool for classification of entities on programming languages with their corresponding datatypes.
+                </p>
+                
+            </div>
+            <div data-date="January 2019 – September 2019">
+                    <h3>Concepts.ai</h3>
+                    <h4>Android App Developer</h4>
+                    <p>
+                    Worked as an Android developer on the front end for creating a solution for pay and park for automobiles.
+                    </p>  
+                    
+                    
+                </div>
+        </div>
+    </div>
+    <!-- End #experience -->
+
+    <div id="education">
+        <h2 class="heading">Education</h2>
+        <div class="education-block">
+            <h3>College Of Engineering,Trivandrum</h3>
+            <span class="education-date">August 2016 - July 2020</span>
+            <h4>Bachelor of Technology in Electrical and Electronics</h4>
+            <p>
+               GPA- 7.9/10 
+            </p>
+        </div>
+        <!-- End .education-block -->
+
+       
+        <!-- End .education-block -->
+    </div>
+    <!-- End #education -->
+
+    <div id="projects" class="background-alt">
+        <h2 class="heading">Projects</h2>
+        <div class="container">
+            <div class="row">
+                <div class="project shadow-large">
+                    <div class="project-image">
+                        <img src="images/bulb.png" />
+                    </div>
+                    <!-- End .project-image -->
+                    <div class="project-info">
+                        <h3>Entity classification tool using NLP and ANTLR</h3>
+                        <ul>
+                        <li>
+                            Scraped Github repositories to generate keyword entities using parser tool and trained the entities using NLP for classification.
+                        </li>
+                        <li>
+                            Used languages : Java, Python, Cpp
+                        </li>
+                        <li>
+                            Frameworks :ANTLR,Keras
+                        </li>
+                        <li>
+                            Pre trained embeddings : GLOVE, BERT
+                        </li>
+                    </ul>
+                        
+                    </div>
+                    <!-- End .project-info -->
+                </div>
+                <!-- End .project -->
+
+                <div class="project shadow-large">
+                    <div class="project-image">
+                        <img src="images/bulb.png" />
+                    </div>
+                    <!-- End .project-image -->
+                    <div class="project-info">
+                        <h3>Research Journal</h3>
+                        <p>
+                                Wrote a chapter titled 'Deep Learning in Python' (Currently under review) for a Springer journal "Advanced Deep Learning Techniques for scientists and engineers: A practical Approach" - under the mentorship of Dr. Kolla Bhanu Prakash, Professor and Research group head from CSE Department, K.L University. 
+
+                        </p>
+                        
+                    </div>
+                 <!-- End .project-info -->
+                </div>
+                
+                <div class="project shadow-large">
+                        <div class="project-image">
+                            <img src="images/bulb.png" />
+                        </div>
+                        <!-- End .project-image -->
+                        <div class="project-info">
+                            <h3>Ceekyoo Search</h3>
+                            <p>
+                              With the help of a team of student engineers to follow my idea, we are building a search engine which has the capability of bringing together the state of the art NLP and Image Recognition models to obtain search results according to questions asked on an image.
+                            </p>
+                            <ul>
+                                    Tools Used
+                                <li> 
+                                AWS
+                            </li>
+                            <li>
+                                Django
+                        </li>
+                        <li>
+                              Google TAPAS(for table QA)
+                        </li>
+                        <li>
+                                HuggingFace Transformers
+                        </li>
+                        <li>
+                                React
+                        </li>
+
+                            </ul>
+                            
+                        </div>
+                        
+                    
+                        
+                        <!-- End .project-info -->
+                    </div>
+                    <div class="project shadow-large">
+                            <div class="project-image">
+                                <img src="images/bulb.png" />
+                            </div>
+                            <!-- End .project-image -->
+                            <div class="project-info">
+                                <h3>Project Anton</h3>
+                                <p>
+                                 As part of our final year project, we are creating a 5 DOF robotic arm which can be trained using reinforcement learning to do a stacking operation by itself.
+                                </p>
+                                <ul>
+                                        Tools Used
+                                <li> 
+                                    Stable-Baselines
+                                </li>
+                                <li> 
+                                    pybullet-robot-envs
+                                </li>
+                                <li> 
+                                    ROS
+                                </li>
+                                </ul>
+                            </div>
+                      <!-- End .project-info -->
+                        </div>
+                        <div class="project shadow-large">
+                                <div class="project-image">
+                                    <img src="images/bulb.png" />
+                                </div>
+                                <!-- End .project-image -->
+                                <div class="project-info">
+                                    <h3>PDF Summariser</h3>
+                                    <p>
+                                     Made an android app to summarize any pdf file and return the summary as a text file.
+                                    </p>
+                                    <ul>
+                                            Tools Used
+                                    <li> 
+                                        Android Studio-Native Android(Java)
+                                    </li>
+                                    <li>
+                                        Firebase
+                                    </li>
+                                    <li>
+                                        Sumy
+                                    </li>
+                                    </ul>
+                                    <a href="https://github.com/abhijithneilabraham/PDFSummariser"> Project URL</a>  
+                                </div>
+                             <!-- End .project-info -->
+                            </div>
+                            <div class="project shadow-large">
+                                    <div class="project-image">
+                                        <img src="images/bulb.png" />
+                                    </div>
+                                    <!-- End .project-image -->
+                                    <div class="project-info">
+                                        <h3>Med-Track</h3>
+                                        <p>
+                                        An original Idea for medicinal commodity distribution. Worked on frontend, backend and data base single handedly.
+                                        </p>
+                                        <ul>
+                                            Tools Used
+                                            <li>
+                                            Android Studio-Native(Java)
+                                            </li>
+                                            <li>
+                                                Firebase
+                                             </li>
+                                             <li>
+                                                 Flask
+                                            </li>
+                                        </ul>    
+                                        <a href="https://github.com/abhijithneilabraham/med_track">Project URL</a>                                    
+                                    </div>
+                                 <!-- End .project-info -->
+                                </div>
+                    <!-- End .project -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="opensource" class="background-alt">
+            <h2 class="heading">Open Source Contributions</h2>
+            <div class="container">
+                <div class="row">
+                    <div class="project shadow-large">
+                        <div class="project-image">
+                            <img src="images/opensource.png" />
+                        </div>
+                        <!-- End .project-image -->
+                        <div class="project-info">
+                            <h3>Eywa</h3>
+                           <p>Wrote tests using pytest, wrote docstrings and rendered documentation page for a chatbot framework called Eywa</p>
+
+                            <a href="https://github.com/farizrahman4u/eywa">Project URL</a>
+                            <br></br>
+                            <a href="https://abhijithneilabraham.github.io/eywabot/">Rendered Documentation sample</a>
+                        </div>
+                        <!-- End .project-info -->
+                    </div>
+                    <!-- End .project -->
+    
+                    <div class="project shadow-large">
+                        <div class="project-image">
+                            <img src="images/opensource.png" />
+                        </div>
+                        <!-- End .project-image -->
+                        <div class="project-info">
+                            <h3>pybullet-robot-envs</h3>
+                            <p>
+                             Bug fixes and code cleanup for ensuring working of training and testing using reinforcement learning for  robotic arm environments.
+                            </p>
+                            <a href="https://github.com/robotology-playground/pybullet-robot-envs">Project URL</a>
+                        </div>
+                     <!-- End .project-info -->
+                    </div>      
+                        <!-- End .project -->
+                    </div>
+                    <div class="project shadow-large">
+                            <div class="project-image">
+                                <img src="images/opensource.png" />
+                            </div>
+                            <!-- End .project-image -->
+                            <div class="project-info">
+                                <h3>madlabsinc/teachcode</h3>
+                                <p>
+                                 Updating features for a teachcode, a project built on js, to teach beginners to code and update their solutions to git.
+                                </p>
+                                <a href="https://github.com/madlabsinc/teachcode">Project URL</a>
+                            </div>
+                         <!-- End .project-info -->
+                        </div>      
+                            <!-- End .project -->
+                        </div>
+                </div>
+            </div>
+        </div>
+    <!-- End #projects -->
+
+    <div id="skills">
+        <h2 class="heading">Skills</h2>
+        <ul>
+          
+            <li>Python</li>
+            <li>Java</li>
+            <li>C</li>
+            <li>C++</li>
+            <li>Keras</li>
+            <li>Django</li>
+            <li>Flask</li>
+            <li>Pytest</li>
+            <li>Firebase</li>
+            <li>Postgresql</li>
+            <li>Cloud Computing</li>     
+            <li>Android Studio</li>
+            <li>React</li>
+            <li>ANTLR</li>
+            <li>NLP</li>
+            <li>Reinforcement Learning</li>
+            <li>Opencv</li>
+            <li>CNN</li>
+
+            
+        </ul>
+    </div>
+    <!-- End #skills -->
+
+    <div id="contact">
+        <h2>Get in Touch</h2>
+        <div id="contact-form">
+                <a href="mailto:abhijithneilabrahampk@gmail.com"><h3>Email</h3></a>
+                <a href="https://www.linkedin.com/in/abhijith-neil-abraham-765165141/"><h3>LinkedIn</h3></a>
+                <a href="https://github.com/abhijithneilabraham"><h3>GitHub</h3></a>
+                <a href="https://twitter.com/abhijithneil"><h3>Twitter</h3></a>
+        </div>
+        <!-- End #contact-form -->
+    </div>
+    <!-- End #contact -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 copyright">
+                   
+                </div>
+                <div class="col-sm-2 top">
+                    <span id="to-top">
+                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <div class="col-sm-5 social">
+                  
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End footer -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/scripts.min.js"></script>
 </body>
 
 </html>
