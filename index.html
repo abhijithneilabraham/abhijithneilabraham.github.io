@@ -125,16 +125,16 @@
 <h2>Open source</h2>
 
 <ul class="list" id="oss">
-  <li data-repo="vitalops/openvibe"><div class="row"><a href="https://github.com/vitalops/openvibe">Openvibe</a><span class="meta">1.5k+ stars</span></div><div class="desc">Agentic coding harness.</div></li>
-  <li data-repo="vitalops/datatune"><div class="row"><a href="https://github.com/vitalops/datatune">Datatune</a><span class="meta">Vitalops</span></div><div class="desc">Large-scale LLM-powered data transformation engine.</div></li>
-  <li data-repo="vitalops/opendesk"><div class="row"><a href="https://github.com/vitalops/opendesk">Opendesk</a><span class="meta">Vitalops</span></div><div class="desc">Multi-machine computer-use MCP server.</div></li>
-  <li data-repo="abhijithneilabraham/tableQA"><div class="row"><a href="https://github.com/abhijithneilabraham/tableQA">TableQA</a><span class="meta">320+ stars</span></div><div class="desc">Natural language to SQL over tabular data.</div></li>
-  <li data-repo="autonomio/jako"><div class="row"><a href="https://github.com/autonomio/jako">Jako</a><span class="meta">Autonomio</span></div><div class="desc">Distributed hyperparameter optimization across machines.</div></li>
-  <li data-repo="autonomio/easyenergy"><div class="row"><a href="https://github.com/autonomio/easyenergy">EasyEnergy</a><span class="meta">Autonomio</span></div><div class="desc">Carbon and energy tracking for ML experiments.</div></li>
-  <li data-repo="vllm-project/vllm-metal" data-prs="1"><div class="row"><a href="https://github.com/vllm-project/vllm-metal/pulls?q=is%3Apr+author%3Aabhijithneilabraham+is%3Amerged">vllm-project/vllm-metal</a><span class="meta">14 merged PRs</span></div><div class="desc">The community hardware plugin for vLLM on Apple Silicon. Metal attention-kernel fixes (unclamped running max on prefill and window rows, neutral window-skipped partitions in the split-K reduce), TurboQuant K block scales, GGUF loader dtype casting, KV-budget validation, MLX cache synchronization in <code>profile_run</code>, and replacing <code>VLLM_METAL_MEMORY_FRACTION</code> with <code>--gpu-memory-utilization</code>.</div></li>
   <li data-repo="roboflow/supervision" data-prs="1"><div class="row"><a href="https://github.com/roboflow/supervision/pulls?q=is%3Apr+author%3Aabhijithneilabraham+is%3Amerged">roboflow/supervision</a><span class="meta">7 merged PRs</span></div><div class="desc">Added <code>KeyPoints.merge()</code>; fixed <code>process_video</code> hanging past the end of a video, out-of-bucket detections in size-bucketed metrics, crop/overlay annotators drawing outside the scene, and empty/numpy-index handling in key points.</div></li>
+  <li data-repo="vllm-project/vllm-metal" data-prs="1"><div class="row"><a href="https://github.com/vllm-project/vllm-metal/pulls?q=is%3Apr+author%3Aabhijithneilabraham+is%3Amerged">vllm-project/vllm-metal</a><span class="meta">14 merged PRs</span></div><div class="desc">The community hardware plugin for vLLM on Apple Silicon. Metal attention-kernel fixes (unclamped running max on prefill and window rows, neutral window-skipped partitions in the split-K reduce), TurboQuant K block scales, GGUF loader dtype casting, KV-budget validation, MLX cache synchronization in <code>profile_run</code>, and replacing <code>VLLM_METAL_MEMORY_FRACTION</code> with <code>--gpu-memory-utilization</code>.</div></li>
   <li data-repo="Lightning-Universe/lightning-flash" data-prs="1"><div class="row"><a href="https://github.com/Lightning-Universe/lightning-flash/pulls?q=is%3Apr+author%3Aabhijithneilabraham+is%3Amerged">Lightning-Universe/lightning-flash</a><span class="meta">2 merged PRs</span></div><div class="desc">Added the <code>TextEmbedder</code> task (sentence-transformer embeddings) and its docs.</div></li>
   <li data-repo="autonomio/talos" data-prs="1"><div class="row"><a href="https://github.com/autonomio/talos/pulls?q=is%3Apr+author%3Aabhijithneilabraham+is%3Amerged">autonomio/talos</a><span class="meta">5 merged PRs</span></div><div class="desc">Implemented <code>DistributeScan</code> / <code>RemoteScan</code> for distributed hyperparameter search across machines, later spun out as Jako.</div></li>
+  <li data-repo="vitalops/openvibe"><div class="row"><a href="https://github.com/vitalops/openvibe">Openvibe</a><span class="meta">1.5k+ stars</span></div><div class="desc">Agentic coding harness.</div></li>
+  <li data-repo="abhijithneilabraham/tableQA"><div class="row"><a href="https://github.com/abhijithneilabraham/tableQA">TableQA</a><span class="meta">320+ stars</span></div><div class="desc">Natural language to SQL over tabular data.</div></li>
+  <li data-repo="vitalops/datatune"><div class="row"><a href="https://github.com/vitalops/datatune">Datatune</a><span class="meta">Vitalops</span></div><div class="desc">Large-scale LLM-powered data transformation engine.</div></li>
+  <li data-repo="vitalops/opendesk"><div class="row"><a href="https://github.com/vitalops/opendesk">Opendesk</a><span class="meta">Vitalops</span></div><div class="desc">Multi-machine computer-use MCP server.</div></li>
+  <li data-repo="autonomio/easyenergy"><div class="row"><a href="https://github.com/autonomio/easyenergy">EasyEnergy</a><span class="meta">Autonomio</span></div><div class="desc">Carbon and energy tracking for ML experiments.</div></li>
+  <li data-repo="autonomio/jako"><div class="row"><a href="https://github.com/autonomio/jako">Jako</a><span class="meta">Autonomio</span></div><div class="desc">Distributed hyperparameter optimization across machines.</div></li>
   <li><div class="row"><a href="https://github.com/abhijithneilabraham">Everything else on GitHub</a><span class="meta"><a href="https://github.com/pulls?q=is%3Apr+author%3Aabhijithneilabraham+is%3Amerged">all merged PRs</a></span></div></li>
 </ul>
 
@@ -281,6 +281,15 @@
       if (n) parts.push(n + ' merged PR' + (n === 1 ? '' : 's'));
       if (parts.length) li.querySelector('.meta').innerHTML = parts.join(' \u00b7 ');
     });
+
+    // Re-sort by live star count, most-starred first, keeping the trailing
+    // "everything else" row at the bottom.
+    var list = document.getElementById('oss');
+    var ranked = items.map(function (li, i) { return { li: li, stars: starCounts[i] }; });
+    if (ranked.every(function (r) { return r.stars != null; })) {
+      ranked.sort(function (a, b) { return b.stars - a.stars; })
+            .forEach(function (r) { list.insertBefore(r.li, list.lastElementChild); });
+    }
   });
 })();
 </script>
