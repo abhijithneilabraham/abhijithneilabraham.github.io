@@ -57,6 +57,7 @@
   .home .skills dt { font-weight: 700; margin-top: 10px; }
   .home .skills dd { margin-left: 0; color: #333; font-size: 15px; }
   .home .skills { margin-left: 0; }
+  .home .desc code { border: 0; background: none; padding: 0; font-size: 14px; }
   @media screen and (max-width: 600px) {
     .home .intro { flex-direction: column-reverse; gap: 16px; }
     .home ul.list .row { flex-direction: column; align-items: flex-start; gap: 0; }
@@ -123,14 +124,18 @@
 
 <h2>Open source</h2>
 
-<ul class="list">
-  <li><div class="row"><a href="https://github.com/vitalops/openvibe">Openvibe</a><span class="meta">1.5k+ stars</span></div><div class="desc">Agentic coding harness.</div></li>
-  <li><div class="row"><a href="https://github.com/vitalops/datatune">Datatune</a><span class="meta">Vitalops</span></div><div class="desc">Large-scale LLM-powered data transformation engine.</div></li>
-  <li><div class="row"><a href="https://github.com/vitalops/opendesk">Opendesk</a><span class="meta">Vitalops</span></div><div class="desc">Multi-machine computer-use MCP server.</div></li>
-  <li><div class="row"><a href="https://github.com/abhijithneilabraham/tableQA">TableQA</a><span class="meta">320+ stars</span></div><div class="desc">Natural language to SQL over tabular data.</div></li>
-  <li><div class="row"><a href="https://github.com/autonomio/jako">Jako</a><span class="meta">Autonomio</span></div><div class="desc">Distributed hyperparameter optimization across machines.</div></li>
-  <li><div class="row"><a href="https://github.com/autonomio/easyenergy">EasyEnergy</a><span class="meta">Autonomio</span></div><div class="desc">Carbon and energy tracking for ML experiments.</div></li>
-  <li><div class="row"><a href="https://github.com/abhijithneilabraham">Everything else on GitHub</a></div></li>
+<ul class="list" id="oss">
+  <li data-repo="vitalops/openvibe"><div class="row"><a href="https://github.com/vitalops/openvibe">Openvibe</a><span class="meta">1.5k+ stars</span></div><div class="desc">Agentic coding harness.</div></li>
+  <li data-repo="vitalops/datatune"><div class="row"><a href="https://github.com/vitalops/datatune">Datatune</a><span class="meta">Vitalops</span></div><div class="desc">Large-scale LLM-powered data transformation engine.</div></li>
+  <li data-repo="vitalops/opendesk"><div class="row"><a href="https://github.com/vitalops/opendesk">Opendesk</a><span class="meta">Vitalops</span></div><div class="desc">Multi-machine computer-use MCP server.</div></li>
+  <li data-repo="abhijithneilabraham/tableQA"><div class="row"><a href="https://github.com/abhijithneilabraham/tableQA">TableQA</a><span class="meta">320+ stars</span></div><div class="desc">Natural language to SQL over tabular data.</div></li>
+  <li data-repo="autonomio/jako"><div class="row"><a href="https://github.com/autonomio/jako">Jako</a><span class="meta">Autonomio</span></div><div class="desc">Distributed hyperparameter optimization across machines.</div></li>
+  <li data-repo="autonomio/easyenergy"><div class="row"><a href="https://github.com/autonomio/easyenergy">EasyEnergy</a><span class="meta">Autonomio</span></div><div class="desc">Carbon and energy tracking for ML experiments.</div></li>
+  <li data-repo="vllm-project/vllm-metal" data-prs="1"><div class="row"><a href="https://github.com/vllm-project/vllm-metal/pulls?q=is%3Apr+author%3Aabhijithneilabraham+is%3Amerged">vllm-project/vllm-metal</a><span class="meta">14 merged PRs</span></div><div class="desc">The community hardware plugin for vLLM on Apple Silicon. Metal attention-kernel fixes (unclamped running max on prefill and window rows, neutral window-skipped partitions in the split-K reduce), TurboQuant K block scales, GGUF loader dtype casting, KV-budget validation, MLX cache synchronization in <code>profile_run</code>, and replacing <code>VLLM_METAL_MEMORY_FRACTION</code> with <code>--gpu-memory-utilization</code>.</div></li>
+  <li data-repo="roboflow/supervision" data-prs="1"><div class="row"><a href="https://github.com/roboflow/supervision/pulls?q=is%3Apr+author%3Aabhijithneilabraham+is%3Amerged">roboflow/supervision</a><span class="meta">7 merged PRs</span></div><div class="desc">Added <code>KeyPoints.merge()</code>; fixed <code>process_video</code> hanging past the end of a video, out-of-bucket detections in size-bucketed metrics, crop/overlay annotators drawing outside the scene, and empty/numpy-index handling in key points.</div></li>
+  <li data-repo="Lightning-Universe/lightning-flash" data-prs="1"><div class="row"><a href="https://github.com/Lightning-Universe/lightning-flash/pulls?q=is%3Apr+author%3Aabhijithneilabraham+is%3Amerged">Lightning-Universe/lightning-flash</a><span class="meta">2 merged PRs</span></div><div class="desc">Added the <code>TextEmbedder</code> task (sentence-transformer embeddings) and its docs.</div></li>
+  <li data-repo="autonomio/talos" data-prs="1"><div class="row"><a href="https://github.com/autonomio/talos/pulls?q=is%3Apr+author%3Aabhijithneilabraham+is%3Amerged">autonomio/talos</a><span class="meta">5 merged PRs</span></div><div class="desc">Implemented <code>DistributeScan</code> / <code>RemoteScan</code> for distributed hyperparameter search across machines, later spun out as Jako.</div></li>
+  <li><div class="row"><a href="https://github.com/abhijithneilabraham">Everything else on GitHub</a><span class="meta"><a href="https://github.com/pulls?q=is%3Apr+author%3Aabhijithneilabraham+is%3Amerged">all merged PRs</a></span></div></li>
 </ul>
 
 <h2>Publications</h2>
@@ -141,16 +146,6 @@
   <li><div class="row"><a href="https://github.com/abhijithneilabraham/tableQA">TableQA: Natural-language question answering over tabular data</a><span class="meta">2021</span></div><div class="desc">Paper accompanying the TableQA NL-to-SQL engine.</div></li>
   <li><div class="row"><span>Chapter in <em>Advanced Deep Learning for Engineers and Scientists</em></span><span class="meta">Springer 2021</span></div><div class="desc">Peer-reviewed engineering book covering deep learning across computer vision, biometrics and smart grids.</div></li>
   <li><div class="row"><a href="https://scholar.google.com/scholar?q=%22Abhijith+Neil+Abraham%22">Google Scholar</a></div></li>
-</ul>
-
-<h2>Contributions</h2>
-
-<ul class="list">
-  <li><div class="row"><a href="https://github.com/vllm-project/vllm-metal/pulls?q=is%3Apr+author%3Aabhijithneilabraham+is%3Amerged">vllm-project/vllm-metal</a><span class="meta">14 merged PRs · 2026</span></div><div class="desc">The community hardware plugin for vLLM on Apple Silicon. Metal attention-kernel fixes (unclamped running max on prefill and window rows, neutral window-skipped partitions in the split-K reduce), TurboQuant K block scales, GGUF loader dtype casting, KV-budget validation, MLX cache synchronization in <code>profile_run</code>, and replacing <code>VLLM_METAL_MEMORY_FRACTION</code> with <code>--gpu-memory-utilization</code>.</div></li>
-  <li><div class="row"><a href="https://github.com/roboflow/supervision/pulls?q=is%3Apr+author%3Aabhijithneilabraham+is%3Amerged">roboflow/supervision</a><span class="meta">7 merged PRs · 2026</span></div><div class="desc">Added <code>KeyPoints.merge()</code>; fixed <code>process_video</code> hanging past the end of a video, out-of-bucket detections in size-bucketed metrics, crop/overlay annotators drawing outside the scene, and empty/numpy-index handling in key points.</div></li>
-  <li><div class="row"><a href="https://github.com/Lightning-Universe/lightning-flash/pull/996">Lightning-Universe/lightning-flash</a><span class="meta">2021</span></div><div class="desc">Added the <code>TextEmbedder</code> task (sentence-transformer embeddings) and its docs.</div></li>
-  <li><div class="row"><a href="https://github.com/autonomio/talos/pulls?q=is%3Apr+author%3Aabhijithneilabraham+is%3Amerged">autonomio/talos</a><span class="meta">2022</span></div><div class="desc">Implemented <code>DistributeScan</code> / <code>RemoteScan</code> for distributed hyperparameter search across machines, later spun out as Jako.</div></li>
-  <li><div class="row"><a href="https://github.com/pulls?q=is%3Apr+author%3Aabhijithneilabraham+is%3Amerged+-user%3Aabhijithneilabraham">All merged PRs</a></div></li>
 </ul>
 
 <h2>Writing</h2>
@@ -210,6 +205,86 @@
   </div>
 
 </article>
+
+<script>
+// Live GitHub stats for the Open source list: stars for every repo, plus merged
+// PR counts for the repos I contribute to. Cached in localStorage for 12 hours so
+// repeat visits don't burn the unauthenticated rate limit; on any failure the
+// static numbers already in the markup are left alone.
+(function () {
+  var TTL = 12 * 60 * 60 * 1000;
+  var items = [].slice.call(document.querySelectorAll('#oss li[data-repo]'));
+  if (!items.length || !window.fetch) return;
+
+  var repos = items.map(function (li) { return li.getAttribute('data-repo'); });
+  var prRepos = items.filter(function (li) { return li.hasAttribute('data-prs'); })
+                     .map(function (li) { return li.getAttribute('data-repo'); });
+
+  function cache(key, value) {
+    try {
+      if (value === undefined) {
+        var hit = JSON.parse(localStorage.getItem(key));
+        return hit && Date.now() - hit.t < TTL ? hit.v : null;
+      }
+      localStorage.setItem(key, JSON.stringify({ t: Date.now(), v: value }));
+    } catch (e) {}
+    return null;
+  }
+
+  function json(url) {
+    return fetch(url, { headers: { Accept: 'application/vnd.github+json' } })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); });
+  }
+
+  function compact(n) {
+    return n >= 1000 ? (n / 1000).toFixed(1).replace('.0', '') + 'k' : String(n);
+  }
+
+  function stars(repo) {
+    var hit = cache('gh:stars:' + repo);
+    if (hit !== null) return Promise.resolve(hit);
+    return json('https://api.github.com/repos/' + repo).then(function (d) {
+      cache('gh:stars:' + repo, d.stargazers_count);
+      return d.stargazers_count;
+    });
+  }
+
+  function mergedPRs() {
+    var hit = cache('gh:prs');
+    if (hit !== null) return Promise.resolve(hit);
+    var q = 'author:abhijithneilabraham type:pr is:merged ' +
+            prRepos.map(function (r) { return 'repo:' + r; }).join(' ');
+    return json('https://api.github.com/search/issues?per_page=100&q=' + encodeURIComponent(q))
+      .then(function (d) {
+        var counts = {};
+        d.items.forEach(function (i) {
+          var r = i.repository_url.split('/').slice(-2).join('/');
+          counts[r] = (counts[r] || 0) + 1;
+        });
+        cache('gh:prs', counts);
+        return counts;
+      });
+  }
+
+  Promise.all([
+    Promise.all(repos.map(function (r) { return stars(r).catch(function () { return null; }); })),
+    prRepos.length ? mergedPRs().catch(function () { return null; }) : Promise.resolve(null)
+  ]).then(function (res) {
+    var starCounts = res[0], prCounts = res[1] || {};
+    items.forEach(function (li, i) {
+      var repo = li.getAttribute('data-repo'), parts = [];
+      if (starCounts[i] != null) {
+        parts.push('<a href="https://github.com/' + repo + '/stargazers">' +
+                   compact(starCounts[i]) + ' \u2605</a>');
+      }
+      var n = prCounts[repo];
+      if (n) parts.push(n + ' merged PR' + (n === 1 ? '' : 's'));
+      if (parts.length) li.querySelector('.meta').innerHTML = parts.join(' \u00b7 ');
+    });
+  });
+})();
+</script>
+
 
       </div>
     </main>
