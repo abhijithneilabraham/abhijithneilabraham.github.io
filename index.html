@@ -15,11 +15,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Abhigith Neil Abraham</title>
-  <meta name="description" content="Abhigith Neil Abraham — ML and software engineer. CEO of Vitalops.ai. LLM inference optimization, coding agents, open source, research.">
+  <meta name="description" content="Abhigith Neil Abraham — ML engineer and founder. I make LLMs fast in production: inference optimization, agent harnesses, and data transformation at scale.">
+  <meta property="og:title" content="Abhigith Neil Abraham">
+  <meta property="og:description" content="ML engineer and founder. I make LLMs fast in production: inference optimization, agent harnesses, and data transformation at scale.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://abneil.dev/">
+  <meta property="og:image" content="https://abneil.dev/Abhigith%20Neil%20Abraham_files/profile.jpeg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@abhijithneil">
 
   <link rel="stylesheet" href="./Abhigith Neil Abraham_files/main.css">
-  <link rel="canonical" href="https://abhijithneilabraham.github.io/">
-  <link rel="alternate" type="application/rss+xml" title="Abhigith Neil Abraham" href="https://abhijithneilabraham.github.io/feed.xml">
+  <link rel="canonical" href="https://abneil.dev/">
+  <link rel="alternate" type="application/rss+xml" title="Abhigith Neil Abraham" href="https://abneil.dev/feed.xml">
 
   
   
@@ -58,6 +65,16 @@
   .home .skills dd { margin-left: 0; color: #333; font-size: 15px; }
   .home .skills { margin-left: 0; }
   .home .desc code { border: 0; background: none; padding: 0; font-size: 14px; }
+  .home .lede { font-size: 19px; line-height: 1.55; }
+  .home .focus { list-style: none; margin-left: 0; }
+  .home .focus li { margin-bottom: 12px; }
+  .home table.posts { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+  .home table.posts td { padding: 7px 0; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  .home table.posts td.date { color: #828282; font-size: 14px; white-space: nowrap; width: 92px; padding-right: 16px; }
+  .home .more { font-size: 15px; color: #828282; }
+  @media screen and (max-width: 600px) {
+    .home table.posts td.date { width: 76px; }
+  }
   @media screen and (max-width: 600px) {
     .home .intro { flex-direction: column-reverse; gap: 16px; }
     .home ul.list .row { flex-direction: column; align-items: flex-start; gap: 0; }
@@ -73,7 +90,7 @@
   <div class="wrapper">
     
     
-    <a class="site-title" href="https://abhijithneilabraham.github.io/">Abhigith Neil Abraham</a>
+    <a class="site-title" href="/">Abhigith Neil Abraham</a>
 
     
       <nav class="site-nav">
@@ -115,14 +132,39 @@
 
 <div class="intro">
   <div class="text">
-    <p>I build ML and software systems end-to-end: LLM inference optimization on the latest GPUs, coding-agent harnesses, large-scale data transformation and enterprise automation. I'm currently <strong>CEO of <a href="https://vitalops.ai/">Vitalops.ai</a></strong>.</p>
-    <p>Over the past 6+ years I've worked across the entire ML, full-stack and large-data lifecycle: benchmarked LLM inference speed in production, built SOTA coding agents, shipped products to paying enterprise customers, published peer-reviewed research, and maintained open source used by thousands. Along the way I've mentored 5000+ people on their tech careers.</p>
-    <p>Outside of work I teach, write, travel and organise techno events — that side of me lives on the <a href="personal/">personal page</a>. You can also grab the <a href="./ML Resume Abhigith.pdf">PDF resume</a>.</p>
+    <p class="lede">I'm an ML engineer and founder. I make LLMs fast in production — I tune inference engines until the tokens-per-second number actually moves, then prove with evals that the accuracy survived.</p>
+    <p>Most recently that was for <a href="https://www.blackbox.ai/">Blackbox AI</a> (10M+ users), where the vLLM/SGLang stack I patched and tuned on NVIDIA Blackwell GPUs more than doubled benchmark speed and placed top 3 on <a href="https://artificialanalysis.ai/">Artificial Analysis</a>, sustaining 10M+ tokens/min under replayed production load. I'm the founder and CEO of <a href="https://vitalops.ai/">Vitalops</a>, where we ship inference, agent and data-transformation systems to enterprise customers. Before that: AI research at <a href="https://www.saama.com/">Saama</a>, ML engineering at <a href="https://github.com/autonomio">Autonomio</a>, and a <a href="https://aclanthology.org/2022.louhi-1.10/">peer-reviewed</a> <a href="https://www.scitepress.org/Link.aspx?doi=10.5220/0015162300004091">research</a> trail.</p>
+    <p>I work in the open. 1.5k+ stars across projects I've authored, merged patches in <a href="https://github.com/vllm-project/vllm-metal">vLLM Metal</a> and <a href="https://github.com/roboflow/supervision">supervision</a>, three publications, and 5000+ people mentored. <a href="./ML Resume Abhigith.pdf">Resume (PDF)</a> · <a href="personal/">the non-work side of me</a>.</p>
   </div>
   <a class="photo" href="personal/"><img alt="Abhigith Neil Abraham" src="./Abhigith Neil Abraham_files/profile.jpeg"></a>
 </div>
 
-<h2>Open source</h2>
+<h2>⚡ What I work on</h2>
+
+<ul class="focus">
+  <li><strong>Inference performance.</strong> Making a model serve more tokens per second on the hardware you already have: speculative decoding, quantization, kernel-level fixes, GPU profiling, load testing — with an eval harness alongside so the speedup is not paid for in accuracy.</li>
+  <li><strong>Agent harnesses.</strong> Coding agents and multi-agent systems that hold up on real benchmarks: verify-then-escalate chains, LLM-as-judge verification, tool and MCP design, context engineering, failure-mode analysis.</li>
+  <li><strong>Data at scale.</strong> LLM transformations over datasets far larger than any context window — the subject of <a href="https://github.com/vitalops/datatune">Datatune</a> and of my <a href="https://www.scitepress.org/Link.aspx?doi=10.5220/0015162300004091">DATA 2026 paper</a>.</li>
+</ul>
+
+<h2>📮 Writing</h2>
+
+<table class="posts">
+  <tr><td class="date">Sep 28, 2026</td><td><a href="https://medium.com/@abhijithneilabraham/learning-inference-a-case-study-for-beginners-3eb9b2309226">Learning Inference: a case study for beginners</a></td></tr>
+  <tr><td class="date">Sep 25, 2026</td><td><a href="https://medium.com/@abhijithneilabraham/learning-llm-inference-confidential-computing-to-keep-data-private-a4648c1b02a7">Learning LLM Inference: confidential computing to keep data private</a></td></tr>
+  <tr><td class="date">Sep 22, 2026</td><td><a href="https://medium.com/@abhijithneilabraham/learning-llm-inference-from-a-single-gpu-to-millions-of-users-e4d5e216662d">Learning LLM Inference: scaling from a single node to millions of users</a></td></tr>
+  <tr><td class="date">Sep 19, 2026</td><td><a href="https://medium.com/@abhijithneilabraham/learning-inference-how-to-host-and-improve-the-token-speed-of-an-llm-cff5623ab505">Learning Inference: how to host and improve the token speed of an LLM</a></td></tr>
+  <tr><td class="date">Aug 8, 2026</td><td><a href="https://medium.com/@abhijithneilabraham/a-simple-practical-mental-model-for-llm-inference-optimization-ca3ea989da25">A simple practical mental model for LLM inference optimization</a></td></tr>
+  <tr><td class="date">May 27, 2026</td><td><a href="https://medium.com/@abhijithneilabraham/solving-your-fomo-in-this-agentic-ai-world-cf9690972641">Solving your FOMO in this agentic AI world</a></td></tr>
+  <tr><td class="date">Jun 5, 2025</td><td><a href="https://medium.com/@abhijithneilabraham/solving-complex-data-pipelines-with-composio-datatune-e31c386a871e">Solving complex data pipelines with Composio + Datatune</a></td></tr>
+  <tr><td class="date">Apr 24, 2024</td><td><a href="https://medium.com/@abhijithneilabraham/a-very-basic-roadmap-for-starting-with-machine-learning-and-working-with-generative-ai-18f13fbb5e76">A very basic roadmap for starting with machine learning and generative AI</a></td></tr>
+  <tr><td class="date">Apr 4, 2024</td><td><a href="https://medium.com/@abhijithneilabraham/solving-your-fomo-about-everything-in-llms-28c93b6b949a">Solving your FOMO about everything in LLMs</a></td></tr>
+  <tr><td class="date">Mar 27, 2024</td><td><a href="https://medium.com/@abhijithneilabraham/data-for-llms-navigating-the-llm-data-pipeline-23a449993782">Data for LLMs: navigating the LLM data pipeline</a></td></tr>
+</table>
+
+<p class="more">All posts on <a href="https://medium.com/@abhijithneilabraham">Medium</a>.</p>
+
+<h2>📦 Open source</h2>
 
 <ul class="list" id="oss">
   <li data-repo="roboflow/supervision" data-prs="1"><div class="row"><a href="https://github.com/roboflow/supervision">roboflow/supervision</a><span class="meta">7 merged PRs</span></div><div class="desc">Added <code>KeyPoints.merge()</code>; fixed <code>process_video</code> hanging past the end of a video, out-of-bucket detections in size-bucketed metrics, crop/overlay annotators drawing outside the scene, and empty/numpy-index handling in key points.</div></li>
@@ -138,69 +180,52 @@
   <li><div class="row"><a href="https://github.com/abhijithneilabraham">Everything else on GitHub</a><span class="meta"><a href="https://github.com/pulls?q=is%3Apr+author%3Aabhijithneilabraham+is%3Amerged">all merged PRs</a></span></div></li>
 </ul>
 
-<h2>Publications</h2>
+<h2>📄 Research</h2>
 
 <ul class="list">
-  <li><div class="row"><a href="https://www.scitepress.org/Link.aspx?doi=10.5220/0015162300004091">Beyond Context Windows: Data Transformations at Scale with LLMs</a><span class="meta">DATA 2026</span></div><div class="desc">15th International Conference on Data Science, Technology and Applications. A MAP / FILTER / REDUCE framework for LLM transformations on arbitrarily large datasets, with an agentic planner; 96.2% accuracy on large-scale enrichment.</div></li>
+  <li><div class="row"><a href="https://www.scitepress.org/Link.aspx?doi=10.5220/0015162300004091">Beyond Context Windows: Data Transformations at Scale with LLMs</a><span class="meta">DATA 2026</span></div><div class="desc">A MAP / FILTER / REDUCE framework for LLM transformations on arbitrarily large datasets, with an agentic planner; 96.2% accuracy on large-scale enrichment.</div></li>
   <li><div class="row"><a href="https://aclanthology.org/2022.louhi-1.10/">BioSimCSE: BioMedical Sentence Embeddings using Contrastive Learning</a><span class="meta">ACL LOUHI 2022</span></div><div class="desc">Biomedical sentence embeddings via contrastive learning, at a peer-reviewed clinical NLP venue.</div></li>
   <li><div class="row"><a href="https://github.com/abhijithneilabraham/tableQA">TableQA: Natural-language question answering over tabular data</a><span class="meta">2021</span></div><div class="desc">Paper accompanying the TableQA NL-to-SQL engine.</div></li>
-  <li><div class="row"><span>Chapter in <em>Advanced Deep Learning for Engineers and Scientists</em></span><span class="meta">Springer 2021</span></div><div class="desc">Peer-reviewed engineering book covering deep learning across computer vision, biometrics and smart grids.</div></li>
-  <li><div class="row"><a href="https://scholar.google.com/scholar?q=%22Abhijith+Neil+Abraham%22">Google Scholar</a></div></li>
+  <li><div class="row"><span>Chapter in <em>Advanced Deep Learning for Engineers and Scientists</em></span><span class="meta">Springer 2021</span></div><div class="desc">Deep learning across computer vision, biometrics and smart grids.</div></li>
 </ul>
 
-<h2>Writing</h2>
+<p class="more">Full list on <a href="https://scholar.google.com/scholar?q=%22Abhijith+Neil+Abraham%22">Google Scholar</a>.</p>
+
+<h2>🎤 Talks</h2>
 
 <ul class="list">
-  <li><div class="row"><a href="https://medium.com/@abhijithneilabraham/learning-llm-inference-from-a-single-gpu-to-millions-of-users-e4d5e216662d">Learning LLM Inference: scaling from a single node to millions of users</a><span class="meta">Sep 2026</span></div></li>
-  <li><div class="row"><a href="https://medium.com/@abhijithneilabraham/learning-inference-how-to-host-and-improve-the-token-speed-of-an-llm-cff5623ab505">Learning Inference: how to host and improve the token speed of an LLM</a><span class="meta">Sep 2026</span></div></li>
-  <li><div class="row"><a href="https://medium.com/@abhijithneilabraham/a-simple-practical-mental-model-for-llm-inference-optimization-ca3ea989da25">A Simple Practical Mental Model for LLM Inference Optimization</a><span class="meta">Aug 2026</span></div></li>
-  <li><div class="row"><a href="https://medium.com/@abhijithneilabraham/solving-your-fomo-in-this-agentic-ai-world-cf9690972641">Solving your FOMO in this Agentic AI world</a><span class="meta">May 2026</span></div></li>
-  <li><div class="row"><a href="https://medium.com/@abhijithneilabraham/solving-complex-data-pipelines-with-composio-datatune-e31c386a871e">Solving Complex Data Pipelines with Composio + Datatune</a><span class="meta">Jun 2025</span></div></li>
-  <li><div class="row"><a href="https://medium.com/@abhijithneilabraham/a-very-basic-roadmap-for-starting-with-machine-learning-and-working-with-generative-ai-18f13fbb5e76">A very basic roadmap for starting with Machine Learning and working with Generative AI</a><span class="meta">Apr 2024</span></div></li>
-  <li><div class="row"><a href="https://medium.com/@abhijithneilabraham/solving-your-fomo-about-everything-in-llms-28c93b6b949a">Solving your FOMO about everything in LLMs</a><span class="meta">Apr 2024</span></div></li>
-  <li><div class="row"><a href="https://medium.com/@abhijithneilabraham/data-for-llms-navigating-the-llm-data-pipeline-23a449993782">Data for LLMs: Navigating the LLM Data Pipeline</a><span class="meta">Mar 2024</span></div></li>
-  <li><div class="row"><span>More on <a href="https://medium.com/@abhijithneilabraham">Medium</a> and <a href="https://abhijithneilabraham.substack.com/">Substack</a></span></div></li>
+  <li><div class="row"><a href="https://www.youtube.com/watch?v=NGYT54Gud_Y">ChatGPT and its impact</a><span class="meta">Beyond Conversations · 2023</span></div><div class="desc">An hour on what ChatGPT changes and where it falls short.</div></li>
+  <li><div class="row"><a href="https://www.youtube.com/watch?v=8ZD5QSJ854s">TableQA</a><span class="meta">FOSS United · 2021</span></div><div class="desc">Natural-language querying over tabular data, at the FOSS United June meetup.</div></li>
+  <li><div class="row"><a href="https://www.youtube.com/watch?v=tvyPDAv-Umk">AMA on open source and ML careers</a><span class="meta">Student Developers Society · 2020</span></div></li>
 </ul>
 
-<h2>Talks</h2>
+<p class="more">More on <a href="https://www.youtube.com/@abhigithneilabraham5101">YouTube</a>.</p>
+
+<h2>🎓 Teaching</h2>
 
 <ul class="list">
-  <li><div class="row"><a href="https://www.youtube.com/watch?v=NGYT54Gud_Y">ChatGPT and its Impact</a><span class="meta">Beyond Conversations · Apr 2023</span></div><div class="desc">An hour-long conversation on what ChatGPT changes and where it falls short.</div></li>
-  <li><div class="row"><a href="https://www.youtube.com/watch?v=8ZD5QSJ854s">TableQA</a><span class="meta">FOSS United Meetup · Jun 2021</span></div><div class="desc">Presenting TableQA, natural-language querying over tabular data, at the FOSS United June meetup.</div></li>
-  <li><div class="row"><a href="https://www.youtube.com/watch?v=tvyPDAv-Umk">AMA with Abhijith Neil Abraham</a><span class="meta">Student Developers Society · Jun 2020</span></div><div class="desc">Open Q&amp;A on open source, ML and getting started in tech.</div></li>
-  <li><div class="row"><a href="https://www.youtube.com/@abhigithneilabraham5101">More on YouTube</a></div></li>
+  <li><div class="row"><span>5000+ people mentored on their tech careers</span></div><div class="desc">Founded <a href="https://tinkerhubcet.github.io/">Tinkerhub CET</a>, still running as a student community; core contributor to <a href="https://www.linkedin.com/company/fast-programmer/">The Fast Tracked Programmer</a> (2000+ members) on their open source journey.</div></li>
+  <li><div class="row"><span>Machine learning workshops across Kerala</span><span class="meta">Google AI</span></div><div class="desc">Free workshops on behalf of <a href="https://events.withgoogle.com/explore-ml-in/">Google AI Explore ML</a>.</div></li>
 </ul>
 
-<h2>Skills</h2>
+<h2>🧰 Toolkit</h2>
 
 <dl class="skills">
-  <dt>LLM Inference &amp; Performance</dt>
-  <dd>Inference optimization, speculative decoding, quantization, GPU profiling &amp; bottleneck analysis, confidential computing, load testing · vLLM, SGLang, NVIDIA Blackwell GPUs</dd>
-  <dt>Agent Systems</dt>
+  <dt>LLM inference &amp; performance</dt>
+  <dd>Inference optimization, speculative decoding, quantization, GPU profiling &amp; bottleneck analysis, confidential computing, load testing · vLLM, SGLang, MLX, NVIDIA Blackwell GPUs</dd>
+  <dt>Agent systems</dt>
   <dd>Agent harness design, multi-agent orchestration, verify-then-escalate chains, LLM-as-judge verification, tool &amp; MCP design, context engineering, failure-mode analysis</dd>
-  <dt>Evaluation &amp; Research</dt>
+  <dt>Evaluation &amp; research</dt>
   <dd>Eval harness design, benchmark replication, experiment design &amp; ablation, statistical significance testing, accuracy-regression verification · Terminal-Bench, BFCL</dd>
-  <dt>Systems &amp; Delivery</dt>
+  <dt>Systems &amp; delivery</dt>
   <dd>Distributed GPU infrastructure, full-stack engineering, large-scale data transformation, secure deployment &amp; attestation · Python, SQL, Postgres, Docker, AWS, GCP, Linux</dd>
 </dl>
 
-<h2>Education</h2>
+<p class="more">BTech in Electrical and Electronics, College of Engineering Trivandrum, 2016–2020.</p>
 
-<ul class="list">
-  <li><div class="row"><span>College of Engineering, Trivandrum — BTech, Electrical and Electronics</span><span class="meta">2016 – 2020</span></div><div class="desc">8.1 / 10 CGPA.</div></li>
-</ul>
+<h2>📬 Follow me</h2>
 
-<h2>Community</h2>
-
-<ul class="list">
-  <li><div class="row"><span>Founded <a href="https://tinkerhubcet.github.io/">Tinkerhub CET</a>; core contributor to <a href="https://www.linkedin.com/company/fast-programmer/">The Fast Tracked Programmer</a></span></div><div class="desc">5000+ people mentored on their tech careers.</div></li>
-  <li><div class="row"><span>Free ML workshops across Kerala with <a href="https://events.withgoogle.com/explore-ml-in/">Google AI Explore ML</a></span></div></li>
-  <li><div class="row"><span>Teaching maths and science at <a href="http://garhwalenglishmediumschool.org/">GEMS School</a> in the Himalayas</span></div><div class="desc"><a href="https://abhijithneilabraham.substack.com/p/helping-them-reach-the-stars-an-engineers?sd=pf">The story</a>.</div></li>
-</ul>
-
-<h2>Contact</h2>
-
-<p>I'm best reached via <a href="mailto:abhijithneilabrahampk@gmail.com">email</a>, <a href="https://www.linkedin.com/in/abhijith-neil-abraham-765165141/">LinkedIn</a> or <a href="https://twitter.com/abhijithneil">Twitter</a>. Always open to interesting conversations and collaboration.</p>
+<p>The best way to reach me is <a href="mailto:abhijithneilabrahampk@gmail.com">email</a>. I'm also on <a href="https://twitter.com/abhijithneil">X</a>, <a href="https://github.com/abhijithneilabraham">GitHub</a> and <a href="https://www.linkedin.com/in/abhijith-neil-abraham-765165141/">LinkedIn</a>. Always open to interesting conversations and collaboration.</p>
 
   </div>
 
