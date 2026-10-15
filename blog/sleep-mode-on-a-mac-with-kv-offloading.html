@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)https://abhijithneilabraham.github.io/ -->
+<html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BRV9Y4RRRR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BRV9Y4RRRR');
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Sleep mode on a Mac: give the KV cache back when vLLM is idle</title>
+  <meta name="description" content="On a Mac there is no second memory to move the weights to, so vLLM sleep mode keeps the weights and gives back only the KV cache.">
+  <meta property="og:title" content="Sleep mode on a Mac: give the KV cache back when vLLM is idle">
+  <meta property="og:description" content="On a Mac there is no second memory to move the weights to, so vLLM sleep mode keeps the weights and gives back only the KV cache.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://abneil.dev/blog/sleep-mode-on-a-mac-with-kv-offloading.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@abhijithneil">
+
+  <link rel="stylesheet" href="../Abhigith Neil Abraham_files/main.css">
+  <link rel="canonical" href="https://abneil.dev/blog/sleep-mode-on-a-mac-with-kv-offloading.html">
+  <link rel="alternate" type="application/rss+xml" title="Abhigith Neil Abraham" href="https://abhijithneilabraham.github.io/feed.xml">
+
+  
+  
+  <script async="" src="../Abhigith Neil Abraham_files/analytics.js"></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-103070243-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+
+  
+  <script src="../Abhigith Neil Abraham_files/jquery.min.js"></script>
+<script type="text/javascript" src="../Abhigith Neil Abraham_files/pixel.js"></script>
+<script type="text/javascript">
+    let ccid = "abhijithneilabraham.github.io";
+    cc(ccid);
+</script>
+<style type="text/css">#mc_embed_signup input.mce_inline_error { border-color:#6B0505; } #mc_embed_signup div.mce_inline_error { margin: 0 0 1em 0; padding: 5px 10px; background-color:#6B0505; font-weight: bold; z-index: 1; color:#fff; }</style><style type="text/css">
+  .post-content h2 { font-size: 24px; margin-top: 36px; margin-bottom: 12px; }
+  .post-content p, .post-content li { line-height: 1.65; }
+  .post-content img { border: 1px solid #e8e8e8; border-radius: 3px; margin: 10px 0; }
+  .post-content pre { line-height: 1.45; }
+  .post-content .more { font-size: 15px; color: #828282; margin-top: 36px; }
+  .post-header .post-meta { margin-top: 10px; }
+  .post-title { font-size: 34px; line-height: 1.15; letter-spacing: 0; }
+  @media screen and (max-width: 800px) { .post-title { font-size: 28px; } }
+</style>
+</head>
+
+
+  <body data-new-gr-c-s-check-loaded="14.1097.0" data-gr-ext-installed="" style="zoom: 1;">
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">Abhigith Neil Abraham</a>
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"></path>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"></path>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+
+
+        <div class="trigger">
+            <a class="page-link" href="../">Work</a>
+            <a class="page-link" href="../oss.html">Open Source</a>
+            <a class="page-link" href="../literature.html">Blogs and Publications</a>
+            <a class="page-link" href="../resume.html">Resume</a>
+            <a class="page-link" href="../goals_not_dreams.html">Goals, Not Dreams</a>
+            <a class="page-link" href="../tweet_threads.html">Guidance</a>
+            <a class="page-link" href="../personal/">Personal</a>
+        </div>
+
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Sleep mode on a Mac: give the KV cache back when vLLM is idle</h1>
+    <p class="post-meta">Oct 14, 2026</p>
+  </header>
+
+  <div class="post-content">
+
+<p>Someone has a Mac mini with 16 GB of memory. They keep a small model server open all day, because their editor and a few scripts send it questions. Between questions the server sits idle, but it still holds all the memory it took at startup.</p>
+
+<p>In the afternoon they open a video project. The Mac starts to swap (swap: move memory to the disk because the memory is full). Everything gets slow. Their choices were</p>
+
+<ul>
+  <li>Kill the server and start it again later. Startup takes a while.</li>
+  <li>Start the server with a smaller memory budget. Then it is too small for their longest prompts.</li>
+  <li>Sleep mode</li>
+</ul>
+
+<p>The server stays open and gives back the part of its memory which it does not need anymore when it's idle. When the next question comes, it takes the memory again in a fraction of a second.</p>
+
+<h2>Unified Memory in Apple Mac</h2>
+
+<p>On an Apple Silicon Mac, the CPU and the GPU use the same memory chips. There is no separate "GPU memory" and "CPU memory". A model loaded for the GPU takes the same memory your browser would take.</p>
+
+<p>While a model answers, it keeps notes about every token it has seen so far (the keys and values of attention, hence KV). vLLM keeps these notes in a big pool of memory, cut into fixed-size blocks, and hands out blocks to requests as they grow. The pool is set at startup from <code>--gpu-memory-utilization</code>, and it is usually the largest single thing the engine holds after the weights. The notes are only useful for the request they belong to. After the request ends, they are kept only in case the same prompt comes again (prefix caching).</p>
+
+<p>So an idle engine holds two big things: the weights, which it needs to answer anything, and the KV pool, which is empty notes.</p>
+
+<h2>What is sleep mode in vLLM?</h2>
+
+<p>vLLM has a feature called <a href="https://docs.vllm.ai/en/latest/features/sleep_mode.html">sleep mode</a>. You start the engine with <code>--enable-sleep-mode</code>, and later you can call <code>sleep()</code> and <code>wake_up()</code>. It has two levels:</p>
+
+<ul>
+  <li><strong>Level 1</strong>: copy the weights from the GPU to CPU memory, and throw the KV cache away. The GPU is now free for something else. <code>wake_up()</code> copies the weights back, which takes a few seconds, and makes a new KV cache.</li>
+  <li><strong>Level 2</strong>: throw away the weights too. <code>wake_up()</code> has to load them from disk again.</li>
+</ul>
+
+<p>It was built for GPU servers that take turns: for example a training loop that uses the GPU for a while, then wakes the inference engine to generate samples, then puts it back to sleep.</p>
+
+<h2>Why a Mac (and therefore vllm-metal) is different</h2>
+
+<p>We mentioned in the previous section about copying weights from GPU to CPU memory. But a Mac owns a single unified memory, so weights have nowhere to go.</p>
+
+<p>So on a Mac, level 1 can only mean one useful thing: throw the KV cache away and keep the weights where they are. That is what vllm-metal does.</p>
+
+<p><img alt="One unified memory, before and after sleep" src="images/01-one-memory-before-and-after.png"></p>
+
+<h2>How it works inside</h2>
+
+<p>The scheduler, which lives in another process, never hears about the sleep. It still holds its block tables: "request A uses blocks 3, 17 and 40". The attention layers still hold their views into the pool. So the one rule is: the pool that comes back after <code>wake_up()</code> must have the same layout as the pool that went away, so that block 17 still means the same place.</p>
+
+<p>The object that owns the memory, <code>KVCacheStorage</code>, does exactly that:</p>
+
+<pre><code>def release(self) -&gt; None:
+    """Free the backing memory. Its contents are discarded."""
+    self.tensors = {}
+    self.buffers = []
+
+def reallocate(self) -&gt; None:
+    """Re-create the backing memory with the layout vLLM scheduled against."""
+    nbytes, region_offsets = self.nbytes, self.region_offsets
+    self._bind()
+    if (self.nbytes, self.region_offsets) != (nbytes, region_offsets):
+        raise RuntimeError("Reallocated KV cache changed its layout")
+</code></pre>
+
+<p><code>release</code> drops the references, and MLX frees the buffers. <code>reallocate</code> runs the same allocation code again, from the same config, and then checks that the size and the region offsets (where each layer's part of the pool starts) are what they were. The views read the backing buffers lazily, so they pick up the new buffers by themselves. If the layout changed, the engine stops instead of reading the wrong memory.</p>
+
+<p>Two details around it:</p>
+
+<ul>
+  <li>The model runner refuses to release while a step is in flight. vllm-metal overlaps work between decode steps, and freeing the notes under a step that is still writing them would be a silent corruption.</li>
+  <li>Hybrid models (attention layers mixed with recurrent layers) keep a list of pending state updates that are applied lazily. That list is emptied together with the pool. Otherwise the first step after waking would write stale state into the fresh pool.</li>
+</ul>
+
+<p>After the release, the worker calls <code>gc.collect()</code> and <code>mx.clear_cache()</code>, so that the memory is free for macOS and not only free inside the process, and logs the difference:</p>
+
+<pre><code>INFO Sleep mode freed 0.65 GiB; &lt;n&gt; GiB of Metal memory is still in use.
+</code></pre>
+
+<h2>What about KV cache offloading?</h2>
+
+<p>vllm-metal can also offload the KV cache. Blocks that leave the KV pool are copied to a host pool (a second area of memory, sized with <code>--kv-offloading-size</code>), and optionally to a folder on disk (the disk tier). When the same prompt comes again, the blocks are copied back, so the prompt does not have to be read again.</p>
+
+<p>So why not move the KV cache into the host pool at sleep? On a Mac that frees nothing. The host pool and the KV pool live in the same unified memory, so the copy only moves the notes from one place to another.</p>
+
+<p>Here is what happens when you sleep with offloading on:</p>
+
+<ul>
+  <li>Sleep mode and offloading work together. The server starts with both flags, and <code>/sleep</code> and <code>/wake_up</code> work as usual.</li>
+  <li>At sleep, vLLM resets the offloading connector. The host pool is emptied, and the disk tier keeps its blocks.</li>
+  <li>The host pool keeps its memory. It is empty, but it is still allocated. Freeing it at sleep and allocating it again at wake is a planned follow-up.</li>
+  <li>After wake, a prompt that was stored before sleep still restores. In a test with Qwen3-0.6B, a 2 GiB host pool and the disk tier, one prompt restored 2,320 tokens after wake, and the output matched a normal prefix cache hit.</li>
+</ul>
+
+<p><img alt="Sleep with KV offloading" src="images/02-sleep-with-kv-offloading.png"></p>
+
+<p>To try both together:</p>
+
+<pre><code>$ VLLM_SERVER_DEV_MODE=1 vllm serve Qwen/Qwen3-0.6B --enable-sleep-mode --kv-offloading-size 2
+</code></pre>
+
+<p>The <a href="https://github.com/vllm-project/vllm-metal/blob/main/docs/kv_offloading.md">KV offloading docs</a> show how to add the disk tier.</p>
+
+<h2>Try it</h2>
+
+<pre><code>from vllm import LLM
+
+llm = LLM("Qwen/Qwen3-0.6B", enable_sleep_mode=True)
+llm.generate("The capital of France is")
+
+llm.sleep(level=1)     # the KV cache is gone; the weights stay
+llm.wake_up()          # a new, empty KV cache, in well under a second
+</code></pre>
+
+<p>As a server, the endpoints are behind vLLM's dev-mode flag:</p>
+
+<pre><code>$ VLLM_SERVER_DEV_MODE=1 vllm serve Qwen/Qwen3-0.6B --enable-sleep-mode
+$ curl -X POST 'http://localhost:8000/sleep?level=1'
+$ curl -X POST 'http://localhost:8000/wake_up'
+</code></pre>
+
+<h2>Summary</h2>
+
+<p>On a Mac there is no second memory to move the weights to, so sleep mode keeps the weights and gives back only the KV cache. Waking is almost free because the new pool is lazy, and the scheduler never notices because the new pool has the same layout as the old one.</p>
+
+<p class="more">More writing is on the <a href="../">home page</a> and the <a href="../literature.html">blogs and publications page</a>.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Abhigith Neil Abraham</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <!--li>
+            
+            Abhigith Neil Abraham
+            
+          </li-->
+          
+          <li>
+            <a><span class="icon icon--github"><svg viewBox="0 4.801209 28.3499966 18.7475815" enable-background="new 0 4.801209 28.3499966 18.7475815">
+<path fill="#828282" d="M15.699194,17.7568531c-0.4572582,0.3048401-0.9145174,0.6096783-1.5241938,0.6096783
+	c-0.6096773,0-1.0669355-0.15242-1.5241938-0.6096783L0,6.7826605v16.1564522C0,23.2439518,0.3048387,23.54879,0.6096774,23.54879
+	h27.1306419c0.3048401,0,0.6096764-0.3048382,0.6096764-0.6096764V6.7826605L15.699194,17.7568531z"></path>
+<path fill="#828282" d="M14.9370966,15.7754021L27.587904,4.801209H0.9145162l12.6508064,10.9741936
+	C13.870162,16.0802422,14.4798384,16.0802422,14.9370966,15.7754021z"></path>
+</svg>
+</span><span class="username">abhijithneilabrahampk@gmail.com</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://github.com/abhijithneilabraham"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"></path></svg>
+</span><span class="username">abhijithneilabraham</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/abhijithneil"><span class="icon icon--twitter"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"></path></svg>
+</span><span class="username">abhijithneil</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://facebook.com/Abhijith Neil Abraham"><span class="icon icon--facebook"><svg viewBox="0 0 155 155" width="16px" height="16px"><path id="f_1_" d="M89.584,155.139V84.378h23.742l3.562-27.585H89.584V39.184   c0-7.984,2.208-13.425,13.67-13.425l14.595-0.006V1.08C115.325,0.752,106.661,0,96.577,0C75.52,0,61.104,12.853,61.104,36.452   v20.341H37.29v27.585h23.814v70.761H89.584z" fill="#828282"></path></svg>
+</span><span class="username">Abhijith Neil Abraham</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://instagram.com/abhijithneilabraham"><span class="icon icon--instagram"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
+    <g>
+        <path d="M127.999746,23.06353 C162.177385,23.06353 166.225393,23.1936027 179.722476,23.8094161 C192.20235,24.3789926 198.979853,26.4642218 203.490736,28.2166477 C209.464938,30.5386501 213.729395,33.3128586 218.208268,37.7917319 C222.687141,42.2706052 225.46135,46.5350617 227.782844,52.5092638 C229.535778,57.0201472 231.621007,63.7976504 232.190584,76.277016 C232.806397,89.7746075 232.93647,93.8226147 232.93647,128.000254 C232.93647,162.177893 232.806397,166.225901 232.190584,179.722984 C231.621007,192.202858 229.535778,198.980361 227.782844,203.491244 C225.46135,209.465446 222.687141,213.729903 218.208268,218.208776 C213.729395,222.687649 209.464938,225.461858 203.490736,227.783352 C198.979853,229.536286 192.20235,231.621516 179.722476,232.191092 C166.227425,232.806905 162.179418,232.936978 127.999746,232.936978 C93.8200742,232.936978 89.772067,232.806905 76.277016,232.191092 C63.7971424,231.621516 57.0196391,229.536286 52.5092638,227.783352 C46.5345536,225.461858 42.2700971,222.687649 37.7912238,218.208776 C33.3123505,213.729903 30.538142,209.465446 28.2166477,203.491244 C26.4637138,198.980361 24.3784845,192.202858 23.808908,179.723492 C23.1930946,166.225901 23.0630219,162.177893 23.0630219,128.000254 C23.0630219,93.8226147 23.1930946,89.7746075 23.808908,76.2775241 C24.3784845,63.7976504 26.4637138,57.0201472 28.2166477,52.5092638 C30.538142,46.5350617 33.3123505,42.2706052 37.7912238,37.7917319 C42.2700971,33.3128586 46.5345536,30.5386501 52.5092638,28.2166477 C57.0196391,26.4642218 63.7971424,24.3789926 76.2765079,23.8094161 C89.7740994,23.1936027 93.8221066,23.06353 127.999746,23.06353 M127.999746,0 C93.2367791,0 88.8783247,0.147348072 75.2257637,0.770274749 C61.601148,1.39218523 52.2968794,3.55566141 44.1546281,6.72008828 C35.7374966,9.99121548 28.5992446,14.3679613 21.4833489,21.483857 C14.3674532,28.5997527 9.99070739,35.7380046 6.71958019,44.1551362 C3.55515331,52.2973875 1.39167714,61.6016561 0.769766653,75.2262718 C0.146839975,88.8783247 0,93.2372872 0,128.000254 C0,162.763221 0.146839975,167.122183 0.769766653,180.774236 C1.39167714,194.398852 3.55515331,203.703121 6.71958019,211.845372 C9.99070739,220.261995 14.3674532,227.400755 21.4833489,234.516651 C28.5992446,241.632547 35.7374966,246.009293 44.1546281,249.28042 C52.2968794,252.444847 61.601148,254.608323 75.2257637,255.230233 C88.8783247,255.85316 93.2367791,256 127.999746,256 C162.762713,256 167.121675,255.85316 180.773728,255.230233 C194.398344,254.608323 203.702613,252.444847 211.844864,249.28042 C220.261995,246.009293 227.400247,241.632547 234.516143,234.516651 C241.632039,227.400755 246.008785,220.262503 249.279912,211.845372 C252.444339,203.703121 254.607815,194.398852 255.229725,180.774236 C255.852652,167.122183 256,162.763221 256,128.000254 C256,93.2372872 255.852652,88.8783247 255.229725,75.2262718 C254.607815,61.6016561 252.444339,52.2973875 249.279912,44.1551362 C246.008785,35.7380046 241.632039,28.5997527 234.516143,21.483857 C227.400247,14.3679613 220.261995,9.99121548 211.844864,6.72008828 C203.702613,3.55566141 194.398344,1.39218523 180.773728,0.770274749 C167.121675,0.147348072 162.762713,0 127.999746,0 Z M127.999746,62.2703115 C91.698262,62.2703115 62.2698034,91.69877 62.2698034,128.000254 C62.2698034,164.301738 91.698262,193.730197 127.999746,193.730197 C164.30123,193.730197 193.729689,164.301738 193.729689,128.000254 C193.729689,91.69877 164.30123,62.2703115 127.999746,62.2703115 Z M127.999746,170.667175 C104.435741,170.667175 85.3328252,151.564259 85.3328252,128.000254 C85.3328252,104.436249 104.435741,85.3333333 127.999746,85.3333333 C151.563751,85.3333333 170.666667,104.436249 170.666667,128.000254 C170.666667,151.564259 151.563751,170.667175 127.999746,170.667175 Z M211.686338,59.6734287 C211.686338,68.1566129 204.809755,75.0337031 196.326571,75.0337031 C187.843387,75.0337031 180.966297,68.1566129 180.966297,59.6734287 C180.966297,51.1902445 187.843387,44.3136624 196.326571,44.3136624 C204.809755,44.3136624 211.686338,51.1902445 211.686338,59.6734287 Z" fill="#0A0A08"></path>
+    </g>
+</svg>
+</span><span class="username">abhijithneilabraham</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://www.linkedin.com/in/abhijith-neil-abraham-765165141/"><span class="icon icon--linkedin"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></span><span class="username">Abhijith Neil Abraham</span></a>
+
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <p>Abhigith Neil Abraham an engineer and a social contributor. He works in enabling better education and accessibility to those in need.</p>
+        
+        <p> Donate to Garhwal English Medium School: <a href="http://m-lp.co/lorimcfa?mlp_referrer_id=tm_60412-u_8032962&utm_medium=more_share_team&utm_source=app"> Donate Now </a> </p>
+
+
+        <!-- Begin MailChimp Signup Form -->
+        <link href="../Abhigith Neil Abraham_files/classic-10_7.css" rel="stylesheet" type="text/css">
+        <style type="text/css">
+          #mc_embed_signup{background:#fff; clear:left; font:14px Lora,Lora,serif;  width:370px;}
+          /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+        </style>
+
+        <script type="text/javascript" src="../mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+        <!--End mc_embed_signup-->
+
+      </div>
+    </div>
+
+  </div>
+
+<!-- Begin MailChimp Signup Form -->
+
+</footer>
+
+
+  
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
