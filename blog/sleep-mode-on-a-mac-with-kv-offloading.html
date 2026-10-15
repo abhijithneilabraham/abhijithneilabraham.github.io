@@ -188,7 +188,7 @@ def reallocate(self) -&gt; None:
 
 <p>vllm-metal can also offload the KV cache. Blocks that leave the KV pool are copied to a host pool (a second area of memory, sized with <code>--kv-offloading-size</code>), and optionally to a folder on disk (the disk tier). When the same prompt comes again, the blocks are copied back, so the prompt does not have to be read again.</p>
 
-<p>So why not move the KV cache into the host pool at sleep? On a Mac that frees nothing. The host pool and the KV pool live in the same unified memory, so the copy only moves the notes from one place to another.</p>
+<p>So why not move the KV cache into the host pool at sleep? It won't free anything in a Mac. The host pool and the KV pool live in the same unified memory, so the copy only moves the notes from one place to another.</p>
 
 <p>Here is what happens when you sleep with offloading on:</p>
 
